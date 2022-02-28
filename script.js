@@ -25,9 +25,11 @@ function checkAnswer() {
         // correct
         acc[0] += 1;
         console.log(acc);
+        document.getElementById("feedback").innerHTML = "&#x2714;"
     } else {
         // incorrect
         acc[1] += 1;
+        document.getElementById("feedback").innerHTML = "&#x2718;"
     }
     newQuestion();
     document.getElementById("answer").value = null;
