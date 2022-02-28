@@ -1,0 +1,21 @@
+* {
+    font-family: "Lato", sans-serif;
+}
+h1 {
+    text-align: center;
+}
+div {
+    text-align: center;
+}
+#main {
+    font-size: 7.5em;
+    padding-top: 5%;
+}
+#answer {
+    font-size: 1em;
+    width: 3em;
+}
+#analytics {
+    font-size: 2em;
+    padding-top: 5%;
+}
