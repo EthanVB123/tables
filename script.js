@@ -4,6 +4,8 @@ var y = 0;
 var ans = 0;
 var acc = [0,0];
 var numQ = 0;
+var time = 0;
+var interval;
 
 document.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {  
@@ -33,6 +35,8 @@ function checkAnswer() {
 
     if (numQ == (acc[0] + acc[1])) {
         console.log("Done!")
+        document.getElementById("main").innerHTML = "<div>Done!</div><button onclick=restart()>Restart</button>"
+        clearInterval(interval);
     }
 }
 
@@ -40,9 +44,18 @@ function renderAnalytics() {
     var percentageAcc = Math.round(10000*acc[0]/(acc[0]+acc[1]))/100
     document.getElementById("acc").innerHTML = `Accuracy: ${acc[0]} / ${acc[0] + acc[1]} = ${percentageAcc}%`
 }
+function restart() {
+    window.location.href = "index.html";
+}
+function incrementTime() {
+    time += 0.1;
+    time = Math.round(10*time)/10;
 
+    document.getElementById("time").innerHTML = `Time: ${time.toFixed(1)} s`
+}
 window.onload = function() {
     console.log(sessionStorage.getItem("numberQuestions"))
     numQ = sessionStorage.getItem("numberQuestions")
+    interval = setInterval(incrementTime, 100);
 }
 newQuestion();
