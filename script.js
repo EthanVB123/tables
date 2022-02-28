@@ -3,6 +3,7 @@ var x = 0;
 var y = 0;
 var ans = 0;
 var acc = [0,0];
+var numQ = 0;
 
 document.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {  
@@ -29,6 +30,10 @@ function checkAnswer() {
     newQuestion();
     document.getElementById("answer").value = null;
     renderAnalytics();
+
+    if (numQ == (acc[0] + acc[1])) {
+        console.log("Done!")
+    }
 }
 
 function renderAnalytics() {
@@ -36,4 +41,8 @@ function renderAnalytics() {
     document.getElementById("acc").innerHTML = `Accuracy: ${acc[0]} / ${acc[0] + acc[1]} = ${percentageAcc}%`
 }
 
+window.onload = function() {
+    console.log(sessionStorage.getItem("numberQuestions"))
+    numQ = sessionStorage.getItem("numberQuestions")
+}
 newQuestion();
